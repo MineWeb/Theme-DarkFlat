@@ -20,50 +20,61 @@
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
 					<ul class="nav navbar-nav navbar-right">
                         <li><a class="hvr-underline-from-center" href="<?= $this->Html->url('/') ?>"><?= $Lang->get('GLOBAL__HOME') ?></a></li>
-                        <?php
-                        if (!empty($nav)) {
-                            $i = 0;
-                            foreach ($nav as $key => $value) {
-                                if (empty($value['Navbar']['submenu'])) {
-                                    echo '<li class="scroll';
-                                    echo ($this->params['controller'] == $value['Navbar']['name']) ? ' active' : '';
-                                    echo '">';
-                                    echo '<a class="hvr-underline-from-center" href="' . $value['Navbar']['url'] . '"';
-                                    echo ($value['Navbar']['open_new_tab']) ? ' target="_blank"' : '';
-                                    echo '>';
-                                    echo $value['Navbar']['name'];
-                                    echo '</a>';
-                                    echo '</li>';
-                                } else {
-                                    echo '<li class="dropdown">';
-                                    echo '<a class="hvr-underline-from-center" href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">';
-                                    echo $value['Navbar']['name'] . ' <i class="fa fa-angle-down parent-symbol"></i>';
-                                    echo '</a>';
-                                    echo '<ul class="dropdown-menu" role="menu">';
-                                    $submenu = json_decode($value['Navbar']['submenu']);
-                                    foreach ($submenu as $k => $v) {
-                                        echo '<li>';
-                                        echo '<a class="hvr-underline-from-center" href="' . rawurldecode(rawurldecode($v)) . '"';
-                                        echo ($value['Navbar']['open_new_tab']) ? ' target="_blank"' : '';
-                                        echo '>';
-                                        echo rawurldecode(str_replace('+', ' ', $k));
-                                        echo '</a>';
-                                        echo '</li>';
-                                    }
-                                    echo '</ul>';
-                                    echo '</li>';
-                                }
-                                $i++;
-                            }
-                        }
-                        ?>
+                        
+                            <?php if(!empty($nav)): ?>
+							<?php $i = 0; ?>
+							<?php foreach ($nav as $key => $value): ?>
+							<?php if(empty($value['Navbar']['submenu'])): ?>
+							<li class="scroll">
+								<a class="hvr-underline-from-center" href="<?= $value['Navbar']['url'] ?>">
+									<?php if(!empty($value['Navbar']['icon'])): ?>
+									<i class="fa fa-<?= $value['Navbar']['icon'] ?>"></i>
+									<?php endif; ?>
+									<?= $value['Navbar']['name'] ?>
+								</a>
+							</li>
+							<?php else: ?>
+							<li class="dropdown">
+								<a href="#" class="hvr-underline-from-center dropdown-toggle" data-toggle="dropdown" role="button"
+								   aria-expanded="false">
+									<?php if(!empty($value['Navbar']['icon'])): ?>
+									<i class="fa fa-<?= $value['Navbar']['icon'] ?>"></i>
+									<?php endif; ?>
+									<?= $value['Navbar']['name'] ?>
+									<i class="fa fa-angle-down">
+									</i>
+								</a>
+								<ul class="dropdown-menu" role="menu">
+									<?php
+									$submenu = json_decode($value['Navbar']['submenu']);
+									 foreach ($submenu as $k => $v) {
+									?>
+									<li>
+										<a class="hvr-underline-from-center"
+										   href="<?= rawurldecode(rawurldecode($v)) ?>"<?= ($value['Navbar']['open_new_tab']) ?'target="_blank"':''?>><i class="fa fa-circle-o"></i>
+										   <?= rawurldecode(str_replace('+', ' ', $k)) ?>
+										</a>
+									</li>
+
+									<?php } ?>
+								</ul>
+							</li>
+							<?php endif; ?>
+							<?php endforeach; ?>
+							<?php endif; ?>
 						
 						<li class="dropdown">
 							<?php if(!$isConnected) { ?>
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="dropdown" aria-expanded="false">Espace Membre <span class="caret"></span></a>
 								<ul class="dropdown-menu" role="menu">
-									<li><a href="#login" data-toggle="modal"><span class="text-uppercase"><?= $Lang->get('USER__LOGIN')?></span></a></li>
+                                    <?php if($EyPlugin->isInstalled('phpierre.signinup')) { ?>
+                                        <li><a href="/login"><span class="text-uppercase"><?= $Lang->get('USER__LOGIN')?></span></a></li>
+                                        <li><a href="/register"><span class="text-uppercase"><?= $Lang->get('USER__REGISTER')?></span></a></li>
+                                    <?php } else { ?>
+                                        <li><a href="#login" data-toggle="modal"><span class="text-uppercase"><?= $Lang->get('USER__LOGIN')?></span></a></li>
 									<li><a href="#register" data-toggle="modal"><span class="text-uppercase"><?= $Lang->get('USER__REGISTER')?></span></a></li>
+                                    <?php } ?>
+									
 								</ul>
 							<?php } else { ?>
 								<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false"><?= $user['pseudo'] ?> <img src="<?= $this->Html->url(['controller' => 'API', 'action' => 'get_head_skin', 'plugin' => false, $user['pseudo'], 16]) ?>"/> <span class="caret"></span></a>

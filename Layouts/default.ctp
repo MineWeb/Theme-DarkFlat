@@ -13,6 +13,7 @@
     <meta name="twitter:site" content="<?= $theme_config['twitter'] ?>"/>
     <meta name="twitter:title" content="<?= $theme_config['name_site'] ?>"/>
     <meta name="twitter:description" content="<?= $theme_config['desc_site'] ?>"/>
+    <link rel="icon" type="image/png" href="<?= (isset($theme_config) && isset($theme_config['favicon_url'])) ? $theme_config['favicon_url'] : '' ?>" />
 
     <title><?= $title_for_layout ?> - <?= $theme_config['name_site'] ?></title>
 
@@ -21,7 +22,7 @@
     <?= $this->Html->css('font-awesome.min.css') ?>
 	
 	<?= $this->Html->css('main.css') ?> 
-	<link href="http://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
+	<link href="//fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
     <?= $this->Html->script('jquery-1.11.0.js') ?>
 
 </head>
