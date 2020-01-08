@@ -67,7 +67,7 @@
 <br><br><br>
 <footer>
     <div class="container">
-        <p>Copyright &copy; 2017 Qually86 - Tous droits réservés.<br>Propulsé par <a href="https://www.mineweb.org" class="mineweb">MineWeb</a></p>
+        <p>Copyright &copy; 2017 - Tous droits réservés.<br>Propulsé par <a href="https://www.mineweb.org" class="mineweb">MineWeb</a></p>
         <p><a href="mailto:mail@gmail.com">CONTACTEZ-NOUS</a></p>
     </div>
 </footer>
