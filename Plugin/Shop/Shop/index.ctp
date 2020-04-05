@@ -21,7 +21,7 @@
 				</ul>	
 				<hr>
 				<?php if($isConnected AND $Permissions->can('CREDIT_ACCOUNT')) { ?>
-				<a href="#" class="btn btn-warning btn-block btn-sm">Vous avez <?= ($isConnected) ? $money.' '.$Configuration->getMoneyName() : $Lang->get('SHOP__TITLE'); ?></a>
+				<a href="#" class="btn btn-warning btn-block btn-sm">Vous avez <?= ($isConnected) ? $money : $Lang->get('SHOP__TITLE'); ?></a>
 				<a href="#" class="btn btn-warning btn-block btn-sm" data-toggle="modal" data-target="#addmoney"><i class="fa fa-plus"></i> <?= $Lang->get('SHOP__ADD_MONEY') ?></a>
 				<?php } ?>
 				<?php if($isConnected) { ?>
