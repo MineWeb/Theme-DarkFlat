@@ -4,7 +4,7 @@
         <div class="col-md-12">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title"><?= $Lang->get('THEME__CUSTOMIZATION') ?></h3><span class="pull-right">Thème par Qually86</span>
+                    <h3 class="box-title"><?= $Lang->get('THEME__CUSTOMIZATION') ?></h3>
                 </div>
                 <div class="box-body">
                     <div class="tabbable">
