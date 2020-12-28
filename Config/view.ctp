@@ -49,11 +49,6 @@
                                                 <td><i>Par defaut : @username</i></td>
                                                 <td><input type="text" class="form-control" name="twitter" value="<?= $theme_config['twitter'] ?>"></td>
                                             </tr>
-                                            <tr>
-                                                <td>Favicon</td>
-                                                <td><i>Par defaut : #</i></td>
-                                                <td><input type="text" class="form-control" name="favicon_url" value="<?= $theme_config['favicon_url'] ?>"></td>
-                                            </tr>
                                         </table>
                                     </div>
                                 </div>
