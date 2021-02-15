@@ -4,7 +4,6 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="<?= $theme_config['desc_site'] ?>">
     <meta name="author" content="MineWeb">
 	
     <meta name="twitter:card" content="summary_large_image"/>
@@ -13,9 +12,14 @@
     <meta name="twitter:site" content="<?= $theme_config['twitter'] ?>"/>
     <meta name="twitter:title" content="<?= $theme_config['name_site'] ?>"/>
     <meta name="twitter:description" content="<?= $theme_config['desc_site'] ?>"/>
-    <link rel="icon" type="image/png" href="<?= (isset($theme_config) && isset($theme_config['favicon_url'])) ? $theme_config['favicon_url'] : '' ?>" />
 
-    <title><?= $title_for_layout ?> - <?= $theme_config['name_site'] ?></title>
+    <title><?= $seo_config['title'] ?></title>
+    <link rel="icon" type="image/png" href="<?= $seo_config['favicon_url'] ?>"/>
+    <meta name="title" content="<?= $seo_config['title'] ?>">
+    <meta property="og:title" content="<?= $seo_config['title'] ?>">
+    <meta name="description" content="<?= $seo_config['description'] ?>">
+    <meta property="og:description" content="<?= $seo_config['description'] ?>">
+    <meta property="og:image" content="<?= $seo_config['img_url'] ?>">
 
     <?= $this->Html->css('bootstrap.min.css') ?>
 	
