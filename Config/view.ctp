@@ -2,15 +2,15 @@
     <!-- Admin -->
     <div class="row">
         <div class="col-md-12">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title"><?= $Lang->get('THEME__CUSTOMIZATION') ?></h3><span class="pull-right">Thème par Qually86</span>
+            <div class="card">
+                <div class="card-header with-border">
+                    <h3 class="card-title"><?= $Lang->get('THEME__CUSTOMIZATION') ?></h3><span class="pull-right">Thème par Qually86</span>
                 </div>
-                <div class="box-body">
+                <div class="card-body">
                     <div class="tabbable">
                         <ul class="nav nav-tabs">
-                            <li class="active"><a href="#tab1" data-toggle="tab">Options principales</a></li>
-                            <li><a href="#tab2" data-toggle="tab">Sidebar</a></li>
+                            <li class="active"><a href="#tab1" class="nav-link text-dark" data-toggle="tab">Options principales</a></li>
+                            <li><a href="#tab2" class="nav-link text-dark" data-toggle="tab">Sidebar</a></li>
                         </ul>
                         <form method="post" enctype="multipart/form-data" data-ajax="false">
                             <div class="tab-content">
